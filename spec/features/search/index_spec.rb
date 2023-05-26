@@ -29,7 +29,7 @@ RSpec.describe 'Search Index' do
 
     within("#twenty-five-members") do
       expect(page).to have_content("Name: Afiko")
-      expect(page).to_not have_content("Name: Fire Navy officer")
+      expect(page).to_not have_content("Name: Great Sage")
     end
   end
 end
