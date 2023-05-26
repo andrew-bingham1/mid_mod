@@ -20,6 +20,18 @@ RSpec.describe 'Search Index' do
       expect(page).to have_content("Nation Member Count: 97")
     end
   end
+
+  it 'displays a list with the detailed information for the first 25 members of the fire nation' do
+    visit root_path 
+
+    select "Fire Nation", from: :nation
+    click_on("Search For Members")
+
+    within("#25-members") do
+      expect(page).to have_content("Name: Afiko")
+      expect(page).to_not have_content("Name: Fire Nation music teacher")
+    end
+  end
 end
 
 
