@@ -1,13 +1,34 @@
 <h1 id="member-count"> Nation Member Count: <%= @members.count %> </h1>
 
 <div id="twenty-five-members">
-  <h3 > Members Details </h3>
+  <h2> Members Details </h2>
   <ul>
     <% @twenty_five_members.each do |member| %>
-    <div id="member-<%= member[:_id] %>"> 
-      <li> Name: <%= member[:name] %> </li>
+      <div id="member-<%= member[:_id] %>"> 
+        <h3> Name: <%= member[:name] %> </h3>
+
         <img src="<%= member[:photoUrl] %>">
-    </div>
+
+        <li> Allies: 
+        <% member[:allies].each do |ally| %>
+          <ul> 
+            <li> <%= ally %> </li>
+          </ul>
+          </li>
+        <% end %>
+
+        <li> Enemies:
+         <% member[:enemies].each do |enemy| %>
+          <ul> 
+            <li> <%= enemy %> </li>
+          </ul>
+        </li>
+        <% end %>
+
+        <li> Affiliations: <%= member[:affiliation] %> </li>
+         
+
+      </div> <br><br><br>
     <% end %>
   </ul>
 </div>

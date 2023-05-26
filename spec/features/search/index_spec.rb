@@ -26,11 +26,15 @@ RSpec.describe 'Search Index' do
     end    
   end
 
-  it 'displays the name of the member' do
+  it 'displays member details' do
     within("#member-5cf5679a915ecad153ab68cc") do
       expect(page).to have_content("Name: Afiko")
+      expect(page).to have_content("Allies: Fire Nation")
+      expect(page).to have_content("Enemies: Aang")
+      expect(page).to have_content("Affiliations: Fire Nation")
     end
   end
+
 end
 
 
