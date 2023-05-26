@@ -10,24 +10,26 @@
         <img src="<%= member[:photoUrl] %>">
 
         <li> Allies: 
-        <% member[:allies].each do |ally| %>
-          <ul> 
-            <li> <%= ally %> </li>
-          </ul>
-          </li>
-        <% end %>
+          <% if member[:allies].empty? %>
+              None
+          <% else %>
+            <% member[:allies].each do |ally| %>
+              <%= ally %>
+            <% end %>
+          <% end %>
+        </li>
 
         <li> Enemies:
-         <% member[:enemies].each do |enemy| %>
-          <ul> 
-            <li> <%= enemy %> </li>
-          </ul>
+          <% if member[:enemies].empty? %>
+            None
+          <% else %>
+            <% member[:enemies].each do |enemy| %>
+              <%= enemy %> 
+            <% end %>
+          <% end %>
         </li>
-        <% end %>
 
         <li> Affiliations: <%= member[:affiliation] %> </li>
-         
-
       </div> <br><br><br>
     <% end %>
   </ul>

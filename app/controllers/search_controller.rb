@@ -9,7 +9,5 @@ class SearchController < ApplicationController
     @members = JSON.parse(response.body, symbolize_names: true)
 
     @twenty_five_members = @members[0..24]
-
-    # require 'pry'; binding.pry
   end
 end
