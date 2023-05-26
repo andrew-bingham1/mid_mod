@@ -1,7 +1,7 @@
-RSpec.describe AvatarSevice do
+RSpec.describe AvatarService do
   it 'exists' do
-    service = AvatarSevice.new
+    service = AvatarService.new
 
-    expect(service).to be_a AvatarSevice
+    expect(service).to be_a AvatarService
   end
 end
