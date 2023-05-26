@@ -27,9 +27,9 @@ RSpec.describe 'Search Index' do
     select "Fire Nation", from: :nation
     click_on("Search For Members")
 
-    within("#25-members") do
+    within("#twenty-five-members") do
       expect(page).to have_content("Name: Afiko")
-      expect(page).to_not have_content("Name: Fire Nation music teacher")
+      expect(page).to_not have_content("Name: Fire Navy officer")
     end
   end
 end
