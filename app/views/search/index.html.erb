@@ -4,7 +4,13 @@
   <h3 > Members Details </h3>
   <ul>
     <% @twenty_five_members.each do |member| %>
+    <div id="member-<%= member[:_id] %>"> 
       <li> Name: <%= member[:name] %> </li>
+        <img src="<%= member[:photoUrl] %>">
+    </div>
     <% end %>
   </ul>
 </div>
+
+
+    

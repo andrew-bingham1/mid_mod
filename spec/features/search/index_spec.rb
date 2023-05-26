@@ -1,35 +1,34 @@
 require 'rails_helper'
 
 RSpec.describe 'Search Index' do 
-  it 'exists' do 
+  before(:each) do
     visit root_path 
 
     select "Fire Nation", from: :nation
     click_on("Search For Members")
+  end
 
+  it 'exists' do 
     expect(current_path).to eq(search_path)
   end
 
   it 'displays the total number of people who live in the Fire Nation' do
-    visit root_path 
-
-    select "Fire Nation", from: :nation
-    click_on("Search For Members")
-
     within("#member-count") do
       expect(page).to have_content("Nation Member Count: 97")
     end
   end
 
-  it 'displays a list with the detailed information for the first 25 members of the fire nation' do
-    visit root_path 
-
-    select "Fire Nation", from: :nation
-    click_on("Search For Members")
-
+  it 'displays a list with 25 members of the fire nation' do
     within("#twenty-five-members") do
       expect(page).to have_content("Name: Afiko")
       expect(page).to_not have_content("Name: Great Sage")
+      save_and_open_page
+    end    
+  end
+
+  it 'displays the name of the member' do
+    within("#member-5cf5679a915ecad153ab68cc") do
+      expect(page).to have_content("Name: Afiko")
     end
   end
 end
