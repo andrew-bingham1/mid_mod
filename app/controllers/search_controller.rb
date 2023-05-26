@@ -7,6 +7,9 @@ class SearchController < ApplicationController
     response = conn.get("/api/v1/characters?affiliation=#{search_params}&perPage=100")
     
     @members = JSON.parse(response.body, symbolize_names: true)
+
+    @twenty_five_members = @members[0..24]
+
     # require 'pry'; binding.pry
   end
 end

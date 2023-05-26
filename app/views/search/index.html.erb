@@ -1,1 +1,10 @@
 <h1 id="member-count"> Nation Member Count: <%= @members.count %> </h1>
+
+<div id="twenty-five-members">
+  <h3 > Members Details </h3>
+  <ul>
+    <% @twenty_five_members.each do |member| %>
+      <li> Name: <%= member[:name] %> </li>
+    <% end %>
+  </ul>
+</div>
